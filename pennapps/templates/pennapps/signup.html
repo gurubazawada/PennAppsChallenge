@@ -15,7 +15,7 @@
         {% csrf_token %}
         <span class="input">
           <input type="text" name="username" class="input-field" required></input>
-            <label class="input-label"><span class="input-label-content">Username</span></label>
+          <label class="input-label"><span class="input-label-content">Username</span></label>
         </span>
         <span id="username-error" class="hidden-error-message">
           Please fill out this field!
@@ -45,9 +45,9 @@
         <form action="/action_page.php">
           <span class="input">
             <input required type="password" id="password" name="password" class="input-field"
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                   ></input><label class="input-label">
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></input><label
+              class="input-label">
               <span class="input-label-content">Password</span></label>
             <span id="passwordToggle" class="fa fa-fw fa-eye eye-vis"></span>
           </span>
@@ -74,8 +74,7 @@
           <p class="errorMessage">{{ error_message }}</p>
           <div class="row">
             <div class="col-sm-12">
-              <input id="login-btn" type="submit" name="submit" value="Sign Up"
-                     class="btn submit-button" />
+              <input id="login-btn" type="submit" name="submit" value="Sign Up" class="btn submit-button" />
             </div>
           </div>
         </form>

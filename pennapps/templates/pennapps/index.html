@@ -9,33 +9,45 @@ Home Page
 
 <div class="container">
   <div class="title-wrapper">
+    {% if user.is_authenticated %}
     <h1 class="page-title">Thanks for applying to PennApps! </h1>
+    {% endif %}
+
   </div>
   <div>
     <div>
       <p class="congrats-message">
-        We’re incredibly excited to invite you to join us on the Penn Engineering campus in Philadelphia for this fall's PennApps!
+        We’re incredibly excited to invite you to join us on the Penn Engineering campus in Philadelphia for this fall's
+        PennApps!
       </p><br>
     </div>
+    {% if user.is_authenticated %}
     <div class="congrats-message">
-      <p>Application Status: </p>
+      <p>Application Status: {{ user.application.status }} </p>
     </div>
+    {% endif %}
+
     <div class="row">
-      <a href="" class="btn" style="margin: 0 auto; width: auto">Start Application</a>
+      <!-- Check if the user has an application and adjust the button text -->
+      {% if user.application %}
+      <a href="/application" class="btn" style="margin: 0 auto; width: auto">Edit Application</a>
+      {% else %}
+      <a href="/login" class="btn" style="margin: 0 auto; width: auto">Start Application</a>
+      {% endif %}
     </div>
+
+    {% if user.is_authenticated %}
     <div class="row">
       <div class="row" style="margin: 0 auto;">
         <div class="col-sm-12">
-          <input  id="login-btn"
-                  type="button"
-                  value="Logout"
-                  class="btn submit-button"
-                  onclick="location.href=''" />
+          <input id="login-btn" type="button" value="Logout" class="btn submit-button"
+            onclick="location.href='/logout'" />
         </div>
       </div>
     </div>
-    </div>
+    {% endif %}
   </div>
+</div>
 </div>
 
 {% endblock %}
